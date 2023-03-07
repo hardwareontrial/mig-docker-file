@@ -1,0 +1,5 @@
+# Config data for database
+[mysqld]
+server-id=1
+log_bin=var/lib/mysql/binary-log
+bind-address=10.10.10.10
