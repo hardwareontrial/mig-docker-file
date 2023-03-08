@@ -1,0 +1,3 @@
+config/php74/conf.d/*.ini
+supervisor/services/*.conf
+*.yaml

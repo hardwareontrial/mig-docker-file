@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  prod_ws-nginx:
+    image: mig:nginx-1.1
+    container_name: prod_ws-nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - '192.168.100.227:80:80'
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ./config/conf.d/:/etc/nginx/conf.d/
+      - ./config/sites-enabled/:/etc/nginx/sites-enabled/
+    networks:
+      net-app:
+        ipv4_address: 11.11.11.11
+      net-database:
+        ipv4_address: 10.10.10.10
+
+networks:
+  net-database:
+    external: true
+  net-app:
+    external: true
