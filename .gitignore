@@ -2,7 +2,7 @@
 *
 # Except this file
 !.gitignore
-!network/
-!production_database-master/
-!production_web-migis/
-!production_webserver-nginx
+!EXAMPLE_network/
+!EXAMPLE_production_database-master/
+!EXAMPLE_production_web-migis/
+!EXAMPLE_production_webserver-nginx
