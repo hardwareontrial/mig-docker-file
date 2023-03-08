@@ -1,0 +1,3 @@
+# Store credential data for database
+[client]
+password='mariadb-root-password'

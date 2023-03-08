@@ -1,0 +1,28 @@
+version: "3.5"
+
+services:
+  prod_db-master-1:
+    image: mig:mariadb-10.5
+    container_name: production_db-master-1
+    restart: unless-stopped
+    tty: true
+    ports:
+      - '[HOST_IP]:[HOST_PORT_DB]:3306'
+    environment:
+      MARIADB_ROOT_PASSWORD: Intigas123!
+      MARIADB_USER: admin_db
+      MARIADB_PASSWORD: Intigas123
+      SERVICE_TAGS: production
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ./config/conf.d/:/etc/mysql/mariadb.conf.d/
+      - ./config/root/:/root/
+      - ./data/:/var/lib/mysql/
+    networks:
+      net-database:
+        ipv4_address: [IP_STATIC]
+
+networks:
+  net-database:
+    external: true
