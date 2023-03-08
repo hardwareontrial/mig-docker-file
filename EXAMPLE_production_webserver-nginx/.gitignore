@@ -3,3 +3,6 @@
 # Except this file
 !.gitignore
 !docker.compose.yaml.example
+!config/conf.d/
+!config/sites-enabled/
+!data/

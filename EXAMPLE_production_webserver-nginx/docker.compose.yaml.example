@@ -3,24 +3,22 @@ version: "3.5"
 services:
   prod_ws-nginx:
     image: mig:nginx-1.1
-    container_name: prod_ws-nginx
+    container_name: production_ws-nginx
     restart: unless-stopped
     tty: true
     ports:
-      - '192.168.100.227:80:80'
+      - '[HOST_IP_ADDRESS]:[HOST_PORT]:[PORT_NGINX]'
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - ./config/conf.d/:/etc/nginx/conf.d/
       - ./config/sites-enabled/:/etc/nginx/sites-enabled/
+      - [ROOT_PROJECT]:/var/www/html
+    working_dir: /var/www/html/
     networks:
       net-app:
-        ipv4_address: 11.11.11.11
-      net-database:
-        ipv4_address: 10.10.10.10
+        ipv4_address: [STATIC_IP]
 
 networks:
-  net-database:
-    external: true
   net-app:
     external: true
