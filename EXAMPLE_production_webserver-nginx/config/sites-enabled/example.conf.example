@@ -1,17 +1,17 @@
-#server  {
-#    listen          [NGINX_PORT];
-#    root            /var/www/html/[PROJECT_FOLDER];
-#    index           index.php index.html;
-#    server_name     test_server;
-#
-#    location / {
-#        try_files $uri $uri/ /index.php?$query_string;
-#    }
-#    location ~ \.php$ {
-#        fastcgi_intercept_errors    on;
-#        include                     fastcgi_params;
-#        fastcgi_param               SCRIPT_FILENAME $document_root$fastcgi_script_name;
-#        include                     snippets/fastcgi-php.conf;
-#        fastcgi_pass                [APP_IP_STATIC]:9000;
-#    }
-#}
+; server  {
+;     listen          [NGINX_PORT];
+;     root            /var/www/html/[PROJECT_FOLDER];
+;     index           index.php index.html;
+;     server_name     test_server;
+;     client_max_body_size 8M;
+;     location / {
+;         try_files $uri $uri/ /index.php?$query_string;
+;     }
+;     location ~ \.php$ {
+;         fastcgi_intercept_errors    on;
+;         include                     fastcgi_params;
+;         fastcgi_param               SCRIPT_FILENAME $document_root$fastcgi_script_name;
+;         include                     snippets/fastcgi-php.conf;
+;         fastcgi_pass                [APP_IP_STATIC]:9000;
+;     }
+; }

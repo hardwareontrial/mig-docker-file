@@ -9,10 +9,10 @@ services:
     ports:
       - '[HOST_IP]:[HOST_PORT_DB]:3306'
     environment:
-      MARIADB_ROOT_PASSWORD: Intigas123!
-      MARIADB_USER: admin_db
-      MARIADB_PASSWORD: Intigas123
-      SERVICE_TAGS: production
+      MARIADB_ROOT_PASSWORD: root-password
+      MARIADB_USER: user-db
+      MARIADB_PASSWORD: user-db-password
+      SERVICE_TAGS: production/staging
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro

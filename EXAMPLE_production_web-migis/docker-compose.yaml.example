@@ -8,9 +8,11 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - ./config/php74/conf.d/:/etc/php/7.4/cli/conf.d/
-      - ./config/php74/conf.d/:/etc/php/7.4/fpm/conf.d/
-      - ./supervisor/services/:/etc/supervisor/conf.d/
+      - ./config/php74/conf.d/10-phpini-overrides.ini:/etc/php/7.4/cli/conf.d/10-phpini-overrides.ini
+      - ./config/php74/conf.d/10-phpini-overrides.ini:/etc/php/7.4/fpm/conf.d/10-phpini-overrides.ini
+      - ./config/supervisor/services/:/etc/supervisor/conf.d/
+      - [ROOT_PROJECT]:/var/www/html
+    working_dir: /var/www/html/[project_folder]
     networks:
       net-app:
         ipv4_address: 11.11.11.11
